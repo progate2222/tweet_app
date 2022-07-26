@@ -25,6 +25,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to index, notice: "Tweetを削除しました!"
+  end
+
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)

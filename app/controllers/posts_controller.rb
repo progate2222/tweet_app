@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to new_post_path, notice: "Tweetを投稿しました！"
     else
-      render new
+      render :new
     end
   end
 
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to index, notice: "Tweetを削除しました!"
+    redirect_to posts_path, notice: "Tweetを削除しました!"
   end
 
   def update
